@@ -23,7 +23,7 @@ let item = 'kayCar'
 
 let add2 = (model,type,volume) => {
     let arr = JSON.parse(localStorage.getItem(item)) || [];
-    arr.push({model,type,volome})
+    arr.push({model,type,volume})
     localStorage.setItem(item,JSON.stringify(arr))
 }
     btnCar.onclick = () => {

@@ -45,14 +45,18 @@
 </div>
 
 <script>
-    let el =document.querySelectorAll("div")
-    let arr = []
-    el.forEach((item) => {
-      if (item.className.length > 1){
-          arr.push(item.className)
-      }
-    })
-    console.log(arr)
+function rec (startElement){
+    let newArr = []
+    for (const item of startElement){
+        if(item.children){
+            newArr.push(...rec(item.children))
+        }
+        newArr.push(...item.classList)
+    }
+    return newArr
+}
+
+console.log(rec(document.body.children));
 </script>
 </body>
 </html>

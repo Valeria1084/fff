@@ -275,19 +275,23 @@ userDiv.appendChild(innerDiv)
 
 
 // за допомоги рекурсії перебрати структуру сторінки. зробити об'єкт, всі заголовки покласти в (масив) характеристику headings,всі параграфи покласти в характеристику (масив) paragraphs
-let usersListFun = (paragraph,paragraphs = []) =>{
-    let headings = []
-    for(let user of usersList){
+const ps = []
+const hs = []
+const rec = (item2) => {
+    for (const element2 of item2.children){
+        if (element2.localName === 'h2') hs.push(element2.innerText)
+        if (element2.localName ==='p') ps.push(element2.innerText)
+        if (element2.children) rec(element2)
 
-        for (const userkey in user) {
-           if(userkey === paragraph){
-             paragraphs.unshift(userkey)
-           }
-           if(!!userkey.paragraph){
-               usersListFun(userkey.paragraph,paragraphs)
-           }
-        }
     }
+
 }
+const element = document.getElementById('wrap')
+rec(element)
+const obj = {
+    title:hs,
+    paragraph:ps
+}
+console.log(obj)
 // зробити div contenteditable ввести будь яке ціле слово. та при натисканні табуляції перетворити його на подвійний тег
 // asd ->tab-> <asd></asd>
