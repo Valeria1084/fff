@@ -28,7 +28,6 @@ fetch('https://jsonplaceholder.typicode.com/posts')
                                         <h4>Name: ${comment.name}</h4>
                                         <h5>Email: ${comment.email}</h5>
                                         <h6>Body: ${comment.body}</h6>
-                                        <h5>City: ${comment.city}</h5>
                                         `;
                                 divCard.appendChild(divCardComments)
                             }
